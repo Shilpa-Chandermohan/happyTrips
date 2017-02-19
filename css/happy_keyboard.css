@@ -1,0 +1,73 @@
+/* Copyright (C) 2014 Panasonic Corporation. All Rights Reserved.
+//
+//*****************************************************************
+// File Name: happy_keyboard.css
+// Purpose: This document imparts style to keyboard
+// File Created Date: Aug 3rd 2014
+// Release Date: Sep 23rd 2014
+// Release Version: 0.6
+//*****************************************************************/
+@font-face{font-family:'Regular';src:url(OpenSans/Regular.ttf)}
+@font-face{font-family:'Bold';src:url(OpenSans/Bold.ttf)}
+@-webkit-keyframes keyboardTop{from{top:1100px;}
+to{top:230px;}
+}
+@-webkit-keyframes keyboardDown{from{top:230px;}
+to{top:1100px;}
+}
+@-webkit-keyframes footer{from{width:0px;background-color:#00FF00;}
+to{width:1048px;background-color:#009900;}
+}
+#topContainer{width:1048px;height:129px;top:0px;left:0px;}
+#topLogo1{width:214px;height:60px;position:absolute;left:68px;top:35px;background:url("../images/happytrips.png")}
+#topBg{width:689px;height:129px;background:url("../images/top_img.png") no-repeat;left:358px;top:0px;position:absolute}
+.keyboardMaskHide{position:absolute;top:0px;width:1920px;height:1080px;background-color:black;opacity:0.7;display:none;z-index:2}
+.keyboardMaskShow{position:absolute;top:0px;width:1920px;height:1080px;background-color:black;opacity:0.7;display:inline;z-index:2}
+#dup,#org{display:none;font:20px PUDSansserifR;position:absolute}
+#keyboardContainer{background-color:rgb(255, 255, 255, 0);margin:0px 0 0 10px;width:1040px;position:absolute;height:380px}
+#searchTextBox{width:867px;height:47px;font:26px Sans-serif;border:none;color:#555555;position:absolute;left:61px;top:6px;outline:none;text-indent:15px}
+#outer_search{width:921px;height:50px;position:absolute;top:5px;left:59px;background-color:#ffffff;border:1px solid #555555;font-size:20px;color:#adabab;line-height:39px}
+#outer_search p{margin:4px 0 0 10px}
+#search_img{background:url("../images/search/search_icon.png") no-repeat;width:30px;height:30px;position:relative;top:15px;left:930px}
+#keyboard{position:absolute;top:42px;left:13px;list-style:none}
+#keyboard li{margin:5px 6px;width:60px;height:52px;line-height:52px;vertical-align:middle;text-align:center;font-size:22px;background-color:#dddddd;background-size:100 % 100 %;color:#555555;float:left}
+#keyboard li.tabSpace{width:132px}
+#keyboard li.delete{width:132px}
+#keyboard li.caps{width:132px}
+#keyboard li.deleteAll{width:132px}
+#keyboard li.lShift{width:132px}
+#keyboard.rShift{width:131px}
+#keyboard li.uppercase{text-transform:uppercase}
+#keyboard li.spaceBar{width:348px}
+.true{display:none}
+#keyboard li.done{width:132px}
+#keyboard li.cancel{width:132px}
+#keyboard li.focussedKey{background-color:#56b247;background-size:100% 100%;color:#ffffff}
+.keyboardAnimTop{-webkit-animation:keyboardTop 0.5s linear;-webkit-animation-fill-mode:forwards}
+.keyboardAnimDown{-webkit-animation:keyboardDown 0.5s linear;-webkit-animation-fill-mode:forwards}
+#keyboardOuter{z-index:2;position:absolute;background:url("../images/search/search_box_bg.png");width:1047px;height:600px;left:434px;border:1px solid grey;display:none}
+@-webkit-keyframes keyboardfooterTop{from{top:1050px;}
+to{top:525px;}
+}
+@-webkit-keyframes keyboardfooterDown{from{top:525px;}
+to{top:1050px;}
+}
+#searchfooter{height:107px;width:1065px;position:absolute;float:left;left:-18px;font-size:20px;top:523px;text-align:center;}
+#footerImg{position:absolute;top:-6px;left:0px;}
+#footerText{height:50px;width:1050px;position:absolute;top:-15px;text-align:center;font-size:26px;color:#393b3c;}
+.footerAnim{-webkit-animation:footer 4s infinite;height:10px;left:18px;top:67px;position:absolute;z-index:0}
+.noFooterAnim{height:10px;left:18px;top:66px;position:absolute;background-color:#009900;z-index:0}
+.noFooterWidth{width:1048px;}
+#doneText{width:130px;height:30px;line-height:30px;margin:6px 0 0 0;}
+#doneImg{width:66px;height:7px;background-color:#0072ff;margin-left:33px;}
+#delText{width:132px;height:30px;line-height:30px;margin:6px 0 0 0;}
+#delImg{width:75px;height:7px;background-color:red;margin-left:28px;}
+#delAllText{width:132px;height:30px;line-height:30px;margin:6px 0 0 0;}
+#delAllImg{width:110px;height:7px;background-color:green;margin-left:12px;}
+#accent{margin:16px 0 5px 38px;width:926px;height:40px;}
+.acc{visibility:hidden;width:59px;height:40px;float:left;margin:0 0 0 13px;line-height:43px;font-size:1.8em;font-weight:bold;text-align:center;color:#ffffff;}
+.up{text-transform:uppercase;font-size:1.6em;}
+p.true, p.false{width:13px;height:2px;margin:0 0 0 22px;text-align:center;//font-size:1.6em;}
+#shiftFocusLeft{-webkit-transform:rotate(180deg)}
+#shiftFocusRight{-webkit-transform:rotate(0deg)}
+.ordinal{font-size:1.4em}

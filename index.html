@@ -1,0 +1,157 @@
+<!--  Copyright (C) 2014 Panasonic Corporation. All Rights Reserved. -->
+<!-- // File Name: main.html -->
+<!-- File Created Date: Aug 3rd 2014
+<!-- Release Date: Sep 23rd 2014
+<!-- Release Version: 0.6  -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Happy Trips</title>
+        <link rel="stylesheet" type="text/css" href="css/happy_main.css">
+        <script>
+        var splash = {total : 0};
+        var loadingText = ['L', 'O', 'A', 'D', 'I', 'N', 'G'];
+        
+        var createElement = function (type, param) {
+            type = type || 'div';
+            param = param || {};
+            var ele = document.createElement(type);
+            if (param.classname) {
+                ele.className = param.classname;
+            }
+            if (param.id) {
+                ele.id = param.id;
+            }
+            if (param.content) {
+                ele.innerHTML = param.content;
+            }
+            if (param.src) {
+                ele.src = param.src;
+            }
+            return ele;
+        };
+        splash.loadImage = function(){
+          try {
+            splash.total++;
+            if(splash.total===5){
+              splash.splashScreen = document.getElementById("splashScreen");
+              splash.splashScreen.style.display = 'block';
+              document.getElementById("wrapper").style.display = 'block';
+              create();
+            }
+          } catch (e) {}
+        };
+        var createItem = function (count) {
+            var splashGrid = createElement('div', {
+                    'classname' : 'splashGrid splashNormal',
+                    'id' : 'splashGrid' + count
+                });
+            document.getElementById('splashMainBlock').appendChild(splashGrid);
+            var splashText = createElement('div', {
+                    'classname' : 'splashText',
+                    'id' : 'splashText' + count,
+                    'content' : loadingText[count]
+                });
+            document.getElementById('splashGrid' + count).appendChild(splashText);
+            var splashImage = createElement('div', {
+                    'classname' : 'splashImage',
+                    'id' : 'splashImage' + count
+                });
+            document.getElementById('splashGrid' + count).appendChild(splashImage);
+        }
+        
+        var splashId = 0,
+            timer_is_on = 0,
+            time,
+
+            enter_focus = function () {
+                document.getElementById('splashGrid' + splashId).className = 'splashGrid splashActive'
+            },
+            leave_focus = function () {
+                document.getElementById('splashGrid' + splashId).className = 'splashGrid splashNormal'
+            },
+            timedCount = function () {
+                time = setTimeout(function () {
+                leave_focus();
+                if (splashId < loadingText.length - 1) {
+                    splashId += 1;
+                } else {
+                    splashId = 0;
+                }
+                enter_focus();
+                    timedCount();
+                }, 200);
+            },
+            startCount = function () {
+                if (!timer_is_on) {
+                    timer_is_on = 1;
+                    timedCount();
+                }
+            },
+            create = function () {
+                enter_focus();
+                startCount();
+            };
+        </script>
+    </head>
+    <body>      
+        <div id="buffer"></div>
+        
+        <div id="splashScreen" class = 'dummy' style =  'display : none';>
+            <div id="splashScreenLeft"></div>
+            <div id="splashScreenRight"></div>
+            <div id="splashLogoContainer">
+                <div id="splashLogo"></div>
+            </div>
+            <div id="splashBlock">
+                <div id="splashMainBlock"></div>
+            </div>
+            <div id="splashFooter">
+                <div id="splashFooterImage"></div>
+            </div>
+            <script>
+                var isSplashScreen = true;
+                for (var count = 0; count < loadingText.length; count++) {
+                    createItem(count);
+                }
+            </script>
+            <div class = 'dummy' style = 'display : none;'  id="splash">
+              <img class = 'dummy'  src="images/Splash_bg.png" onload="splash.loadImage()"></img>
+              <img class = 'dummy'  src="images/splash_logo_bg.png" onload="splash.loadImage()"></img>
+              <img class = 'dummy'  src="images/splash.png" onload="splash.loadImage()"></img>
+              <img class = 'dummy'  src="images/Splash_Logo.png" onload="splash.loadImage()"></img>
+              <img class = 'dummy'  src="images/character_img_1.png" onload="splash.loadImage()"></img>
+            </div>
+        </div>
+        
+        <div id="wrapper" class="addBg" class = 'dummy' style = 'display : none;'> <!-- addBg -->
+            <section id="topSection" class = "topSection">
+            <div id="logo" class="logo"></div>
+            <div id="header" class="header"></div> <!-- header -->
+            </section>          
+            <section id="innerSection">
+                <section id="menuSection"></section>
+                <section id="listingFooterSection" class = "listingFooterSection loadingOff"></section>
+                <section id="contentSection" class = "contentSection"></section>
+                <div id="contentMask" class="contentMask loadingOff"></div>
+                <div id="contentSectionBg" class = "contentSectionBg">
+                    <div id="contentSectionBgLeft"></div>
+                    <div id="contentSectionBgRight"></div>
+                </div>
+            </section>
+        </div>
+        <div id="loading" class="loading loadingTxt loadingOff"><div id="splashBlockLoading"><div id="splashMainBlock"><div class="splashGrid splashNormal" id="splashGrid0"><div class="splashText" id="splashText0">L</div><div class="splash splashImageLoading" id="splashImage0"></div></div><div class="splashGrid splashNormal" id="splashGrid1"><div class="splashText" id="splashText1">O</div><div class="splash splashImageLoading" id="splashImage1"></div></div><div class="splashGrid splashNormal" id="splashGrid2"><div class="splashText" id="splashText2">A</div><div class="splash splashImageLoading" id="splashImage2"></div></div><div class="splashGrid splashNormal" id="splashGrid3"><div class="splashText" id="splashText3">D</div><div class="splash splashImageLoading" id="splashImage3"></div></div><div class="splashGrid splashActive" id="splashGrid4"><div class="splashText" id="splashText4">I</div><div class="splash splashImageLoading" id="splashImage4"></div></div><div class="splashGrid splashNormal" id="splashGrid5"><div class="splashText" id="splashText5">N</div><div class="splash splashImageLoading" id="splashImage5"></div></div><div class="splashGrid splashNormal" id="splashGrid6"><div class="splashText" id="splashText6">G</div><div class="splash splashImageLoading" id="splashImage6"></div></div></div></div></div>
+        <div id="loadingTxt" style="display:none;" class="loadingOff">Loading...</div>
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/happy_main.js"></script>
+        <script src="js/happy_detail.js"></script>      
+        <script src="js/happy_keyboard.js"></script>
+        <script type="text/javascript">
+            // Entry Point of the HTML5 application
+            window.onload = function() {
+                main.splashScreen.start();
+            };
+        </script>
+    </body>
+</html>
